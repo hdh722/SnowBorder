@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
@@ -7,6 +7,7 @@ public class FinishLine : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("player øœ¡÷");
+            SceneManager.LoadScene(0);
         }
     }
 }
