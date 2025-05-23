@@ -420,7 +420,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -3989,10 +3989,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -5289,6 +5289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2669b909bf46de248ad8b911d8d36ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 2
 --- !u!1 &418219591
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,6 +5320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee49edc9e14e7c418239ed0fa53e031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 3
 --- !u!61 &418219593
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5374,7 +5376,7 @@ Transform:
   m_GameObject: {fileID: 418219591}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1320.9, y: -272.4, z: 0}
+  m_LocalPosition: {x: -14.4, y: 29.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7624,7 +7626,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -11193,10 +11195,10 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
