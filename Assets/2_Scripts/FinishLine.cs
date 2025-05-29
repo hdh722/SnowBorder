@@ -4,25 +4,22 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField]
     private float delay = 2f;
+    [SerializeField]
     private ParticleSystem finishEffect;
-    void Awake()
+    private AudioSource audioSource;
+    private bool isFinished = false;
+    private void Start()
     {
-        // 하위 오브젝트에서 FinishEffect 파티클 시스템을 찾음
-        Transform effectTransform = transform.Find("FinishEffect");
-        if (effectTransform != null)
-        {
-            finishEffect = effectTransform.GetComponent<ParticleSystem>();
-        }
+        audioSource = GetComponent<AudioSource>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isFinished)
         {
             Debug.Log("player 완주");
-            if (finishEffect != null)
-            {
-                finishEffect.Play();
-            }
+            isFinished = true;
+            finishEffect.Play();
+            audioSource.Play();
             Invoke(nameof(ClearReloadScene), delay);
         }
     }

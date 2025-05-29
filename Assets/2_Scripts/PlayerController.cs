@@ -4,27 +4,40 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float torqueAmount = 3f;
+    Rigidbody2D rb2d;
+    private SurfaceEffector2D surfaceEffector2D;
+    [SerializeField] float basespeed = 20f;
+    [SerializeField] float boostspeed = 30f;
+    private bool isBoosting = false;
+    private bool isRunning = true;
+
     private enum InputKey
     {
         None, Left, Right
     }
     private InputKey currentKey = InputKey.None;
-    Rigidbody2D rb2d;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        surfaceEffector2D = FindFirstObjectByType<SurfaceEffector2D>();
     }
     void Update()
     {
         currentKey = Input.GetKey(KeyCode.LeftArrow) ?
             InputKey.Left :
             Input.GetKey(KeyCode.RightArrow) ? InputKey.Right : InputKey.None;
-            ;
+        
+        isBoosting = Input.GetKey(KeyCode.UpArrow);
+    }
+    public void GameOver()
+    {
+        isRunning = false;
     }
     private void FixedUpdate()
     {
-        switch(currentKey)
+        if (!isRunning) return;
+        switch (currentKey)
         {
             case InputKey.Left:
                 rb2d.AddTorque(torqueAmount);
@@ -36,5 +49,6 @@ public class PlayerController : MonoBehaviour
                 //do nothing
                 break;
         }
+        surfaceEffector2D.speed = isBoosting ? boostspeed : basespeed;
     }
 }
